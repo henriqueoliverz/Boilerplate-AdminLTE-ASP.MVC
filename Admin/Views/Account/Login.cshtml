@@ -18,7 +18,7 @@
     </div>
     @Html.ValidationMessageFor(model => model.Email, string.Empty, new { @class = "text-danger" })
     <div class="form-group has-feedback">
-        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
+        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "Password", @placeholder = "Password" })
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
     </div>
     @Html.ValidationMessageFor(model => model.Password, string.Empty, new { @class = "text-danger" })
@@ -48,5 +48,5 @@
 </div>
 <!-- /.social-auth-links -->
 
-<a href="#">I forgot my password</a><br>
-<a href="register.html" class="text-center">Register a new membership</a>
+<a href="@Url.Action("ForgotPassword")">I forgot my password</a><br>
+<a href="@Url.Action("Register")" class="text-center">Register a new membership</a>

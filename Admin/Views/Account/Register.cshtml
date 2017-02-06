@@ -1,42 +1,36 @@
 ﻿@model Admin.Models.RegisterViewModel
 @{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
     ViewBag.Title = "Register";
 }
 
 <p class="login-box-msg">Register a new membership</p>
 
-<form action="../../index.html" method="post">
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(string.Empty, new { @class = "text-danger" })
     <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Full name">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-    </div>
-    <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type = "Email", @placeholder = "E-mail" })
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
     </div>
     <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "Password", @placeholder = "Password" })
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
     </div>
     <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retype password">
+        @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @type = "Password", @placeholder = "Retype password" })
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
     </div>
     <div class="row">
-        <div class="col-xs-8">
-            <div class="checkbox icheck">
-                <label>
-                    <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="#">terms</a>
-                </label>
-            </div>
-        </div>
         <!-- /.col -->
-        <div class="col-xs-4">
+        <div class="col-xs-12">
             <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
         </div>
         <!-- /.col -->
     </div>
-</form>
+}
+
 
 <div class="social-auth-links text-center">
     <p>- OR -</p>
@@ -50,4 +44,4 @@
     </a>
 </div>
 
-<a href="login.html" class="text-center">I already have a membership</a>
+<a href="@Url.Action("Login")" class="text-center">I already have a membership</a>

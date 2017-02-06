@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Admin.Models;
+using System.Net;
 
 namespace Admin.Controllers
 {
@@ -234,7 +235,7 @@ namespace Admin.Controllers
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
-            return code == null ? View("Error") : View();
+            return code != null ? View("Error") : View();
         }
 
         //
@@ -246,24 +247,24 @@ namespace Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return Json(new { code = HttpStatusCode.Forbidden });
             }
             var user = await UserManager.FindByNameAsync(model.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return Json(new { code = HttpStatusCode.Accepted });
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return Json(new { code = HttpStatusCode.Accepted });
             }
             AddErrors(result);
-            return View();
+            return Json(new { code = HttpStatusCode.Forbidden });
         }
 
-        //
+        //  
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
