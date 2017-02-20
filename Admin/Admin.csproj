@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -322,6 +323,34 @@
     <Content Include="Content\Plugins\iCheck\square\yellow.png" />
     <Content Include="Content\Plugins\iCheck\square\_all.css" />
     <Content Include="Content\Plugins\sweet-alert2\sweetalert2.min.css" />
+    <Content Include="img\avatar.png" />
+    <Content Include="img\avatar04.png" />
+    <Content Include="img\avatar2.png" />
+    <Content Include="img\avatar3.png" />
+    <Content Include="img\avatar5.png" />
+    <Content Include="img\boxed-bg.jpg" />
+    <Content Include="img\boxed-bg.png" />
+    <Content Include="img\credit\american-express.png" />
+    <Content Include="img\credit\cirrus.png" />
+    <Content Include="img\credit\mastercard.png" />
+    <Content Include="img\credit\mestro.png" />
+    <Content Include="img\credit\paypal.png" />
+    <Content Include="img\credit\paypal2.png" />
+    <Content Include="img\credit\visa.png" />
+    <Content Include="img\default-50x50.gif" />
+    <Content Include="img\icons.png" />
+    <Content Include="img\photo1.png" />
+    <Content Include="img\photo2.png" />
+    <Content Include="img\photo3.jpg" />
+    <Content Include="img\photo4.jpg" />
+    <Content Include="img\user1-128x128.jpg" />
+    <Content Include="img\user2-160x160.jpg" />
+    <Content Include="img\user3-128x128.jpg" />
+    <Content Include="img\user4-128x128.jpg" />
+    <Content Include="img\user5-128x128.jpg" />
+    <Content Include="img\user6-128x128.jpg" />
+    <Content Include="img\user7-128x128.jpg" />
+    <Content Include="img\user8-128x128.jpg" />
     <Content Include="Scripts\jquery.sweetalert2.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -392,6 +421,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_AccountLayout.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
